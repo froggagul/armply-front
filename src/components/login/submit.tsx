@@ -10,10 +10,10 @@ interface InputInterface {
 
 export default ({ isOn, title, className, onClick }: InputInterface) => {
   return (
-      <div className={`${className} ${isOn}`} onClick={() => { if (onClick && isOn) { onClick(); } }}>
-        <div className="title">
-          {title}
-        </div>
+    <div className={`${className} ${isOn}`} onClick={() => { if (onClick && isOn) { onClick(); } }}>
+      <div className="title">
+        {title}
       </div>
+    </div>
   );
-}
+};

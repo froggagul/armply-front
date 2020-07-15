@@ -19,11 +19,11 @@ export default () => {
         <div className="text">
           비밀번호가 일치하지 않습니다.
         </div>
-        <Submit isOn={true} title={'회원가입'} className={'continue'} onClick={() => { alert('다음차시에'); }}/>
+        <Submit isOn title={'회원가입'} className={'continue'} onClick={() => { alert('다음차시에'); }} />
         <div className="text margin">
           회원가입을 함에따라, 개인정보 동의 및 어쩌구 저쩌구를 동의하게 됩니다.
         </div>
       </div>
     </>
   );
-}
+};

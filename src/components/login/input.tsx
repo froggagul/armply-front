@@ -9,14 +9,14 @@ interface InputInterface {
 }
 
 export default ({ state, setState, placeholder, className }: InputInterface) => {
-    return (
-        <input
-          onChange={(e) => {
-            setState(e.target.value);
-          }}
-          value={state}
-          placeholder={placeholder}
-          className={className}
-        />
-    );
-}
+  return (
+    <input
+      onChange={(e) => {
+        setState(e.target.value);
+      }}
+      value={state}
+      placeholder={placeholder}
+      className={className}
+    />
+  );
+};
