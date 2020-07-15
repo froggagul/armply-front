@@ -1,0 +1,112 @@
+$green: #536349;
+$grey: #707070;
+.main {
+    position: fixed;
+    width: 100vw;
+    max-width: 800px;
+    height: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+    background-color: $green;
+    .title {
+        position: relative;
+        width: 100px;
+        height: 50px;
+        font-size: 30px;
+        text-align: center;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+    }
+    .container {
+        position: absolute;
+        width: 86.4%;
+        height: 453px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        .semi.title{
+            position: relative;
+            margin-top: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: black;
+            font-size: 30px;
+            width: 100%;
+        }
+        .componentbox{
+            width: 100%;
+            height: calc(100% - 50px);
+        }
+    }
+    .container.GetEmail{
+        height: 453px;
+        .componentbox{
+            .item{
+                position: relative;
+                width: 200px;
+                height: 34px;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-top: 16px;
+            }
+            .item:first-child{
+                margin-top: 34px;
+            }
+            .contour{
+                position: relative;
+                height: 38px;
+                width: 251px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-bottom: 1px solid $grey;
+                margin-bottom: 16.5px;
+                .text{
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translate(-50%, -60%);
+                    width: 42px;
+                    height: 18px;
+                    text-align: center;
+                    color: $grey;
+                    background-color: white;
+                }
+            }
+        }
+    }
+    .container.UserExist{
+        height: 256px;
+        .componentbox{
+            .text{
+                position: relative;
+                height: 15px;
+                left: calc(50% + 38px);
+                color: $green;
+                margin-top: 13px;
+                margin-bottom: 16px;
+            }
+        }
+    }
+    .container.UserNExist{
+        height: 381px;
+        .componentbox{
+            .text{
+                position: relative;
+                height: 15px;
+                width: 250px;
+                left: 45px;
+                margin-top: 3px;
+                font-size: 10px;
+            }
+            .text.margin{
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
