@@ -1,0 +1,13 @@
+.replyBox {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    .from,.content{
+        font-size: 15px;
+        color: #505050;
+    }
+    .content{
+        width: 100%;
+        word-wrap: break-word;
+    }
+}

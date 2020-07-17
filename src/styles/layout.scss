@@ -15,10 +15,15 @@
         .title{
             position: relative;
             left: 50%;
-            top: 8px;
+            margin-top: 8px;
             transform: translateX(-50%);
             font-size: 30px;
             text-align: center;
         }
+    }
+    .children {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 56.8px);
     }
 }

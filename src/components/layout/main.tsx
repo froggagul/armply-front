@@ -12,7 +12,9 @@ export default ({ children, title }: LayoutProp) => {
     <div className="layout">
       <Header title={title} />
       <SideNav />
-      {children}
+      <div className="children">
+        {children}
+      </div>
     </div>
   );
 };

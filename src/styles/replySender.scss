@@ -1,0 +1,140 @@
+.sendContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .from {
+        position: absolute;
+        top: 8px;
+        left: 1px;
+        width: 100px;
+        height: 29px;
+        color: #707070;
+        line-height: 1.25;
+        font-size: 20px;
+    }
+    .togglebutton {
+        position: absolute;
+        top: 10px;
+        right: -17px;
+        width: 107px;
+        height: 34px;
+        .text{
+            position: absolute;
+            top: 5px;
+            right: -17px;
+        }
+        .text.public {
+            left: -17px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            left: 15px;
+            width: 60px;
+            height: 34px;
+          }
+          .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+          .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #536349;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          input:checked + .slider {
+            background-color: #ccc;
+          }
+          input:focus + .slider {
+            box-shadow: 0 0 1px #ccc;
+          }
+          input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+          }
+          /* Rounded sliders */
+          .slider.round {
+            border-radius: 34px;
+          }
+          .slider.round:before {
+            border-radius: 50%;
+          }
+    }
+    .inputs {
+        position: absolute;
+        top: 61px;
+        left: 0px;
+        width: 100%;
+        height: 30px;
+        border: 0px;
+        border-bottom: 1px solid #707070;
+        padding: 3px 0px 0px 3px;
+        color: #505050;
+        font-size: 15px;
+        font-family: inherit;
+    }
+    .limit {
+        position: absolute;
+        top: 107px;
+        left: 0px;
+        width: 60px;
+        height: 22px;
+        color: #000000;
+        font-size: 15px;
+    }
+    .buttons {
+        position: absolute;
+        top: 102px;
+        left: 192px;
+        height: 32px;
+        width: 112px;
+        display: flex;
+        flex-direction: row;
+        .button {
+            position: relative;
+            width: 63px;
+            height: 100%;
+            .text{
+                font-size: 15px;
+            }
+        }
+        .confirm {
+            border-radius: 16px;
+            background-color: #536349;
+            .text{
+                position: absolute;
+                color: white;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .delete {
+            padding-top: 5px;
+            color: #707070;
+        }
+    }
+}
+    
+*:focus {
+    outline: none;
+}
