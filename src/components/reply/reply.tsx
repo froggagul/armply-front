@@ -4,14 +4,15 @@ import '../../styles/reply.scss';
 interface Reply {
   from: string,
   content: string,
-  when: string,
+  // eslint-disable-next-line react/require-default-props
+  when?: string,
 }
 
 export default ({ from, content, when }: Reply) => {
   return (
     <div className="replyBox">
       <div className="from">
-        {`From. ${from} - ${when}`}
+        {`From. ${from}${when ? ` - ${when}` : ''}`}
       </div>
       <div className="content">
         {`${content}`}
