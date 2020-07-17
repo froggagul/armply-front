@@ -1,0 +1,24 @@
+
+.layout {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    .header{
+        position: relative;
+        top: 0px;
+        width: 100%;
+        .top{
+            width: 100%;
+            height: 4px;
+            background-color: #536349;        
+        }
+        .title{
+            position: relative;
+            left: 50%;
+            top: 8px;
+            transform: translateX(-50%);
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+}

@@ -6,7 +6,7 @@ export default () => {
 
   return (
     <Layout title={'ARMPLY'}>
-      <div>
+      <div className="bottom">
         hello
       </div>
     </Layout>
