@@ -2,7 +2,19 @@ import * as React from 'react';
 import Input from './input';
 import Submit from './submit';
 
-export default () => {
+interface User {
+  email?: string,
+  password?: string,
+  name?: string,
+}
+
+interface Init {
+  setPhase: React.Dispatch<React.SetStateAction<'GetEmail' | 'UserExist' | 'UserNExist'>>,
+  setUserInfo: React.Dispatch<React.SetStateAction<User | undefined>>,
+  userInfo: User | undefined
+}
+
+export default ({ setPhase, userInfo, setUserInfo }: Init) => {
   const [name, setName] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [checkPassword, setCheckPassword] = React.useState<string>('');
