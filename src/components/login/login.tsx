@@ -16,6 +16,7 @@ interface Init {
 
 export default ({ setPhase, userInfo }: Init) => {
   const [password, setPassword] = React.useState<string>('');
+  console.log(setPhase);
   const login = () => {
     Axios.post('http://localhost:5000/auth/login', {
       email: userInfo?.email,

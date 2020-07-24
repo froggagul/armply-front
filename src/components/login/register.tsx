@@ -14,6 +14,7 @@ interface Init {
 }
 
 export default ({ setPhase, userInfo }: Init) => {
+  console.log(setPhase, userInfo);
   const [name, setName] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [checkPassword, setCheckPassword] = React.useState<string>('');
