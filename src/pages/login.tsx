@@ -13,8 +13,8 @@ export default () => {
   const [phase, setPhase] = React.useState<'GetEmail' | 'UserExist' | 'UserNExist'>('GetEmail');
   const components = {
     GetEmail: <GetEmail setPhase={setPhase} setUserInfo={setUserInfo} userInfo={userInfo} />,
-    UserExist: <Login setPhase={setPhase} setUserInfo={setUserInfo} userInfo={userInfo} />,
-    UserNExist: <Register setPhase={setPhase} setUserInfo={setUserInfo} userInfo={userInfo} />,
+    UserExist: <Login setPhase={setPhase} userInfo={userInfo} />,
+    UserNExist: <Register setPhase={setPhase} userInfo={userInfo} />,
   };
   React.useEffect(() => {
     console.log(phase);

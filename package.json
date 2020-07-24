@@ -35,6 +35,6 @@
     "start": "next start -p 80",
     "dev": "next -p 3000",
     "lint": "eslint ./pages --ext .js,.ts,.tsx",
-    "build": "next build"
+    "build": "next build && next export"
   }
 }

@@ -10,11 +10,10 @@ interface User {
 
 interface Init {
   setPhase: React.Dispatch<React.SetStateAction<'GetEmail' | 'UserExist' | 'UserNExist'>>,
-  setUserInfo: React.Dispatch<React.SetStateAction<User | undefined>>,
   userInfo: User | undefined
 }
 
-export default ({ setPhase, userInfo, setUserInfo }: Init) => {
+export default ({ setPhase, userInfo }: Init) => {
   const [name, setName] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [checkPassword, setCheckPassword] = React.useState<string>('');
@@ -22,12 +21,12 @@ export default ({ setPhase, userInfo, setUserInfo }: Init) => {
     <>
       <div className="semi title">회원가입</div>
       <div className="componentbox">
-        <Input state={name} setState={setName} placeholder={'이름'} className={'login margin'}/>
-        <Input state={password} setState={setPassword} placeholder={'비밀번호'} className={'login'}/>
+        <Input state={name} setState={setName} placeholder={'이름'} className={'login margin'} />
+        <Input state={password} setState={setPassword} placeholder={'비밀번호'} className={'login'} />
         <div className="text">
           비밀번호는 6자 이상이어야 합니다.
         </div>
-        <Input state={checkPassword} setState={setCheckPassword} placeholder={'비밀번호 확인'} className={'login'}/>
+        <Input state={checkPassword} setState={setCheckPassword} placeholder={'비밀번호 확인'} className={'login'} />
         <div className="text">
           비밀번호가 일치하지 않습니다.
         </div>

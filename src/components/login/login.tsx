@@ -11,11 +11,10 @@ interface User {
 
 interface Init {
   setPhase: React.Dispatch<React.SetStateAction<'GetEmail' | 'UserExist' | 'UserNExist'>>,
-  setUserInfo: React.Dispatch<React.SetStateAction<User | undefined>>,
   userInfo: User | undefined
 }
 
-export default ({ setPhase, userInfo, setUserInfo }: Init) => {
+export default ({ setPhase, userInfo }: Init) => {
   const [password, setPassword] = React.useState<string>('');
   const login = () => {
     Axios.post('http://localhost:5000/auth/login', {
