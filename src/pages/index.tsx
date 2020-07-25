@@ -1,10 +1,26 @@
 import * as React from 'react';
+import Axios from 'axios';
+import { backUrl } from '../../config';
 import '../styles/home.scss';
 import { Layout } from '../components/layout';
 import { Reply, ReplySender } from '../components/reply';
 
-export default () => {
+interface userInfo {
+  name: string,
+  email: string
+}
 
+export default () => {
+  const [userInfo, setUserInfo] = React.useState<userInfo>({
+    name: '',
+    email: '',
+  });
+  React.useEffect(() => {
+    Axios.get(`${backUrl}/auth/my`, { withCredentials: true })
+      .then((res) => {
+        setUserInfo(res.data);
+      });
+  }, []);
   return (
     <Layout title={'ARMPLY'}>
       <>
@@ -22,7 +38,7 @@ export default () => {
           </div>
         </div>
         <div className="replySenderContainer">
-          <ReplySender />
+          <ReplySender name={userInfo.name} />
         </div>
       </>
     </Layout>
