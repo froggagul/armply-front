@@ -7,4 +7,4 @@ package-lock.json
 .vscode
 new.pem
 config.tsx
-config.js
+out
