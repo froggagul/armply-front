@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Axios from 'axios';
+import { backUrl } from '../../../config';
 import '../../styles/replySender.scss';
 
 interface sender {
@@ -7,6 +9,20 @@ interface sender {
 
 export default ({ name }: sender) => {
   const [content, setContent] = React.useState<string>('');
+  const [isPrivate, setIsPrivate] = React.useState<boolean>(false);
+  const send = () => {
+    Axios.post(`${backUrl}/posts/post`, {
+      isPrivate,
+      content,
+    }, { withCredentials: true })
+      .then(() => {
+        window.location.href = './';
+      });
+  };
+  React.useEffect(() => {
+    console.log(isPrivate);
+  }, [isPrivate]);
+
   if (name !== '') {
     return (
       <div className="sendContainer">
@@ -18,7 +34,7 @@ export default ({ name }: sender) => {
             공개
           </div>
           <label className="switch">
-            <input type="checkbox" />
+            <input type="checkbox" onChange={() => { setIsPrivate(!isPrivate); }} />
             <span className="slider round" />
           </label>
           <div className="text">
@@ -35,10 +51,10 @@ export default ({ name }: sender) => {
           {`(${content.length}/250)`}
         </div>
         <div className="buttons">
-          <div className="button delete">
+          <div className="button delete" onClick={() => { setContent(''); }}>
             취소
           </div>
-          <div className="button confirm">
+          <div className="button confirm" onClick={() => { send(); }}>
             <div className="text">
               확인
             </div>

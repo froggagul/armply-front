@@ -4,6 +4,7 @@ import * as React from 'react';
 // import { useRouter } from 'next/router';
 import '../../styles/sidebar.scss';
 import Axios from 'axios';
+import { backUrl } from '../../../config';
 
 export default () => {
   // const router = useRouter();
@@ -12,7 +13,7 @@ export default () => {
   };
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(false);
   React.useEffect(() => {
-    Axios.get('http://localhost:5000/auth/my', { withCredentials: true })
+    Axios.get(`${backUrl}/auth/my`, { withCredentials: true })
       .then((res) => {
         if (res.data) {
           setIsAuthenticated(true);
@@ -23,7 +24,7 @@ export default () => {
       });
   }, []);
   const logout = () => {
-    Axios.delete('http://localhost:5000/auth/logout', { withCredentials: true })
+    Axios.delete(`${backUrl}/auth/logout`, { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           moveTo('/');

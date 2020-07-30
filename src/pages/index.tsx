@@ -9,18 +9,40 @@ interface userInfo {
   name: string,
   email: string
 }
+interface reply {
+  user: {
+    id: string,
+    name: string
+  }
+  content: string,
+  createdAt: string,
+}
 
 export default () => {
   const [userInfo, setUserInfo] = React.useState<userInfo>({
     name: '',
     email: '',
   });
+  const [replys, setReplys] = React.useState<reply[]>();
   React.useEffect(() => {
     Axios.get(`${backUrl}/auth/my`, { withCredentials: true })
       .then((res) => {
         setUserInfo(res.data);
       });
   }, []);
+  React.useEffect(() => {
+    if (userInfo.name !== '') {
+      Axios.get(`${backUrl}/posts/list?page=1&perPage=10`)
+        .then((res) => res.data.posts.map((r: any) => ({
+          user: r.user,
+          content: r.content,
+          createdAt: r.createdAt.slice(0, 10),
+        })))
+        .then((res) => {
+          setReplys(res);
+        });
+    }
+  }, [userInfo]);
   return (
     <Layout title={'ARMPLY'}>
       <>
@@ -33,8 +55,9 @@ export default () => {
             {`To ${'은서'}`}
           </div>
           <div className="replyContainer">
-            <Reply from={'호진'} content={'잘 지내구 있나 모르겠다~ 나는 이제 곧 치킨\n뜯으러 갈께 안녕~'} when={'2020-07-15'} />
-            <Reply from={'호진'} content={'overflowvoerljsdfkljalkdjflksjflasdfksjadlfjlksjdlfk\n뜯으러 갈께 안녕~'} when={'2020-07-15'} />
+            {replys?.map((x) => (
+              <Reply from={x.user.name} content={x.content} when={x.createdAt} />
+            ))}
           </div>
         </div>
         <div className="replySenderContainer">

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Axios from 'axios';
 import Input from './input';
 import Submit from './submit';
+import { backUrl } from '../../../config';
 
 interface User {
   email?: string,
@@ -23,7 +24,7 @@ export default ({ setPhase, setUserInfo, userInfo }: Init) => {
   const checkEmail = () => {
     // email 유효성 검사
     // email check
-    Axios.post('http://localhost:5000/auth/view', { email })
+    Axios.post(`${backUrl}/auth/view`, { email })
       .then((res) => {
         if (res.data.success) {
           setPhase('UserExist');

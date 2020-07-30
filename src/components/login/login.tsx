@@ -2,6 +2,7 @@ import * as React from 'react';
 import Axios from 'axios';
 import Input from './input';
 import Submit from './submit';
+import { backUrl } from '../../../config';
 
 interface User {
   email?: string,
@@ -18,7 +19,7 @@ export default ({ setPhase, userInfo }: Init) => {
   const [password, setPassword] = React.useState<string>('');
   console.log(setPhase);
   const login = () => {
-    Axios.post('http://localhost:5000/auth/login', {
+    Axios.post(`${backUrl}/auth/login`, {
       email: userInfo?.email,
       password,
     }, { withCredentials: true })
