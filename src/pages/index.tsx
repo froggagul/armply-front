@@ -32,7 +32,7 @@ export default () => {
   }, []);
   React.useEffect(() => {
     if (userInfo.name !== '') {
-      Axios.get(`${backUrl}/posts/list?page=1&perPage=10`)
+      Axios.get(`${backUrl}/posts/list?page=1&perPage=8`)
         .then((res) => res.data.posts.map((r: any) => ({
           user: r.user,
           content: r.content,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Axios from 'axios';
-import { backUrl } from '../../../config';
+import { backUrl, MAXLENGTH } from '../../../config';
 import '../../styles/replySender.scss';
 
 interface sender {
@@ -9,6 +9,8 @@ interface sender {
 
 export default ({ name }: sender) => {
   const [content, setContent] = React.useState<string>('');
+
+  const message = content.slice(0, MAXLENGTH);
   const [isPrivate, setIsPrivate] = React.useState<boolean>(false);
   const send = () => {
     Axios.post(`${backUrl}/posts/post`, {
@@ -19,9 +21,6 @@ export default ({ name }: sender) => {
         window.location.href = './';
       });
   };
-  React.useEffect(() => {
-    console.log(isPrivate);
-  }, [isPrivate]);
 
   if (name !== '') {
     return (
@@ -44,11 +43,13 @@ export default ({ name }: sender) => {
         <textarea
           className="inputs"
           placeholder="댓글을 입력하세요"
-          value={content}
-          onChange={(e) => { setContent(e.target.value); }}
+          value={message}
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
         />
         <div className="limit">
-          {`(${content.length}/250)`}
+          {`(${message.length}/250)`}
         </div>
         <div className="buttons">
           <div className="button delete" onClick={() => { setContent(''); }}>

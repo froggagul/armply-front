@@ -3,7 +3,6 @@ import '../styles/soldier.scss';
 import { Layout } from '../components/layout';
 
 export default () => {
-
   return (
     <Layout title="군인 정보">
       <>
@@ -16,10 +15,10 @@ export default () => {
               일병 이은서
             </div>
             <div className="info-item">
-              입대 | 2020-07-22
+              입대 | 2020-07-28
             </div>
             <div className="info-item">
-              입대 | 2022-01-22
+              입대 | 2022-01-28
             </div>
           </div>
         </div>

@@ -8,15 +8,13 @@ interface Reply {
   when?: string,
 }
 
-export default ({ from, content, when }: Reply) => {
-  return (
-    <div className="replyBox">
-      <div className="from">
-        {`From. ${from}${when ? ` - ${when}` : ''}`}
-      </div>
-      <div className="content">
-        {`${content}`}
-      </div>
+export default ({ from, content, when }: Reply) => (
+  <div className="replyBox">
+    <div className="from">
+      {`From. ${from}${when ? ` - ${when}` : ''}`}
     </div>
-  );
-};
+    <div className="content">
+      {`${content}`}
+    </div>
+  </div>
+);
