@@ -24,7 +24,7 @@ export default ({ setPhase, setUserInfo, userInfo }: Init) => {
   const checkEmail = () => {
     // email 유효성 검사
     // email check
-    Axios.post(`${backUrl}/auth/view`, { email })
+    Axios.post(`${backUrl}/auth/view`, { email, loginType: 'email' })
       .then((res) => {
         if (res.data.success) {
           setPhase('UserExist');
@@ -37,7 +37,12 @@ export default ({ setPhase, setUserInfo, userInfo }: Init) => {
     <>
       <div className="semi title">로그인/회원가입</div>
       <div className="componentbox">
-        <div className="item google">
+        <div
+          className="item google"
+          onClick={() => {
+            window.open('http://localhost:5000/auth/google', '_self');
+          }}
+        >
           google
         </div>
         <div className="item facebook">

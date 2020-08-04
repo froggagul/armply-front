@@ -49,7 +49,11 @@ export default ({ currentPage, setCurrentPage, replyLength }: pageIndexProp) => 
         <div
           className="page arrow"
           onClick={() => {
-            movePage(currentPage + 5);
+            if (currentPage + 5 <= maxPage) {
+              movePage(currentPage + 5);
+            } else {
+              movePage(maxPage);
+            }
           }}
         >
           <div className="text">
