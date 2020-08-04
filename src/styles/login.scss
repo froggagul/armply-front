@@ -48,19 +48,66 @@ $grey: #707070;
         .componentbox{
             .item{
                 position: relative;
-                width: 200px;
-                height: 34px;
                 left: 50%;
                 transform: translateX(-50%);
+                box-sizing: border-box;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                text-align: left;
+                text-decoration: none;
+                text-transform: uppercase;
+                vertical-align: middle;
+                width: 90%;
+                border-radius: 3px;
                 margin-top: 16px;
+                outline: rgb(255, 255, 255) none 0px;
             }
             .item:first-child{
                 margin-top: 34px;
             }
+            #google-connect {
+                border-color: rgb(220, 74, 61);
+	            border-color: rgb(220, 74, 61);
+	            background: rgb(220, 74, 61) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+            }
+            #google-connect span {
+                position: relative;
+                left: 70px;
+                box-sizing: border-box;
+                color: #FFF;
+                cursor: pointer;
+                text-align: center;
+                text-transform: uppercase;
+                border: 0px none rgb(220, 74, 61);
+                outline: rgb(255, 255, 255) none 0px;
+                  -webkit-transition: all .3s ease;
+                -moz-transition: all .3s ease;
+                -ms-transition: all .3s ease;
+                -o-transition: all .3s ease;
+                transition: all .3s ease;
+            }
+            #facebook-connect {
+                border-color: rgb(60, 90, 154);
+	            background: rgb(60, 90, 154) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook-white.svg?sanitize=true') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+            }
+            #facebook-connect span {
+              position: relative;
+              left: 60px;
+              box-sizing: border-box;
+              color: #FFF;
+              cursor: pointer;
+              text-align: center;
+              text-transform: uppercase;
+              border: 0px none rgb(255, 255, 255);
+              outline: rgb(255, 255, 255) none 0px;
+            }
             .contour{
                 position: relative;
                 height: 38px;
-                width: 251px;
+                width: 90%;
                 left: 50%;
                 transform: translateX(-50%);
                 border-bottom: 1px solid $grey;

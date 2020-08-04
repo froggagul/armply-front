@@ -37,27 +37,24 @@ export default ({ setPhase, setUserInfo, userInfo }: Init) => {
     <>
       <div className="semi title">로그인/회원가입</div>
       <div className="componentbox">
-        <div
-          className="item google"
+        <a href={`${backUrl}/auth/google`} className="item" id="google-connect"> <span>구글 계정으로 로그인</span></a>
+        <a href={`${backUrl}/auth/facebook`} className="item" id="facebook-connect"> <span>페이스북 계정으로 로그인</span></a>
+        {/* <div
+          className="item facebook"
           onClick={() => {
-            window.open('http://localhost:5000/auth/google', '_self');
+            alert('죄송합니다 ㅠㅠ 준비중이에요');
+            // window.open(`${backUrl}/auth/facebook`, '_self');
           }}
         >
-          google
-        </div>
-        <div className="item facebook">
-          facebook
-        </div>
-        <div className="item kakao">
           kakao
-        </div>
+        </div> */}
         <div className="contour">
           <div className="text">
             또는
           </div>
         </div>
-        <Input state={email} setState={setEmail} placeholder={'이메일'} className={'login'} />
-        <Submit isOn title={'계속하기'} className={'continue'} onClick={() => { checkEmail(); }} />
+        <Input state={email} setState={setEmail} placeholder={'이메일'} className={'login resp'} />
+        <Submit isOn title={'계속하기'} className={'continue responsive'} onClick={() => { checkEmail(); }} />
       </div>
     </>
   );
