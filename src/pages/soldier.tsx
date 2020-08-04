@@ -12,13 +12,13 @@ export default () => {
           </div>
           <div className="info-wrap">
             <div className="info-item">
-              일병 이은서
+              훈련병 이은서
             </div>
             <div className="info-item">
               입대 | 2020-07-28
             </div>
             <div className="info-item">
-              입대 | 2022-01-28
+              전역 | 2022-01-28
             </div>
           </div>
         </div>

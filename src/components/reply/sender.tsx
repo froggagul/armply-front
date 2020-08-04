@@ -4,7 +4,7 @@ import { backUrl, MAXLENGTH } from '../../../config';
 import '../../styles/replySender.scss';
 
 interface sender {
-  name: string
+  name: string | undefined
 }
 
 export default ({ name }: sender) => {
@@ -22,7 +22,7 @@ export default ({ name }: sender) => {
       });
   };
 
-  if (name !== '') {
+  if (name && name !== '') {
     return (
       <div className="sendContainer">
         <div className="from">

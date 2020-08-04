@@ -6,8 +6,8 @@ import { Layout } from '../components/layout';
 import { Reply, ReplySender } from '../components/reply';
 
 interface userInfo {
-  name: string,
-  email: string
+  name?: string,
+  email?: string
 }
 interface reply {
   user: {
@@ -19,30 +19,34 @@ interface reply {
 }
 
 export default () => {
-  const [userInfo, setUserInfo] = React.useState<userInfo>({
+  const [userInfo, setUserInfo] = React.useState<userInfo | undefined>({
     name: '',
     email: '',
   });
   const [replys, setReplys] = React.useState<reply[]>();
   React.useEffect(() => {
-    Axios.get(`${backUrl}/auth/my`, { withCredentials: true })
+    Axios.get(`${backUrl}/posts/list?page=1&perPage=8`)
+      .then((res) => res.data.posts.map((r: any) => ({
+        user: r.user,
+        content: r.content,
+        createdAt: r.createdAt.slice(0, 10),
+      })))
       .then((res) => {
-        setUserInfo(res.data);
+        setReplys(res);
+      })
+      .catch((err) => {
+        console.dir(err);
       });
   }, []);
   React.useEffect(() => {
-    if (userInfo.name !== '') {
-      Axios.get(`${backUrl}/posts/list?page=1&perPage=8`)
-        .then((res) => res.data.posts.map((r: any) => ({
-          user: r.user,
-          content: r.content,
-          createdAt: r.createdAt.slice(0, 10),
-        })))
-        .then((res) => {
-          setReplys(res);
-        });
-    }
-  }, [userInfo]);
+    Axios.get(`${backUrl}/auth/my`, { withCredentials: true })
+      .then((res) => {
+        setUserInfo(res.data);
+      })
+      .catch(() => {
+        setUserInfo(undefined);
+      });
+  }, [replys]);
   return (
     <Layout title={'ARMPLY'}>
       <>
@@ -61,7 +65,7 @@ export default () => {
           </div>
         </div>
         <div className="replySenderContainer">
-          <ReplySender name={userInfo.name} />
+          <ReplySender name={userInfo?.name} />
         </div>
       </>
     </Layout>

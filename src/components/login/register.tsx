@@ -16,12 +16,10 @@ interface Init {
 }
 
 export default ({ setPhase, userInfo }: Init) => {
-  console.log(setPhase, userInfo);
   const [name, setName] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [checkPassword, setCheckPassword] = React.useState<string>('');
   const register = () => {
-    console.log('register');
     Axios.post(`${backUrl}/auth/signup`, {
       email: userInfo?.email,
       username: name,
@@ -30,7 +28,8 @@ export default ({ setPhase, userInfo }: Init) => {
     })
       .then((res) => {
         if (res.data.success) {
-          window.location.href = './';
+          alert('회원가입이 되었습니다');
+          setPhase('GetEmail');
         }
       })
       .catch((err) => {
@@ -43,11 +42,11 @@ export default ({ setPhase, userInfo }: Init) => {
       <div className="semi title">회원가입</div>
       <div className="componentbox">
         <Input state={name} setState={setName} placeholder={'이름'} className={'login margin'} />
-        <Input state={password} setState={setPassword} placeholder={'비밀번호'} className={'login'} />
+        <Input state={password} setState={setPassword} placeholder={'비밀번호'} className={'login'} type={'password'} />
         <div className="text">
           {password.length >= 6 ? '' : '비밀번호는 6자 이상이어야 합니다.'}
         </div>
-        <Input state={checkPassword} setState={setCheckPassword} placeholder={'비밀번호 확인'} className={'login'} />
+        <Input state={checkPassword} setState={setCheckPassword} placeholder={'비밀번호 확인'} className={'login'} type={'password'} />
         <div className="text">
           {password === checkPassword ? '비밀번호가 일치합니다.' : '비밀번호가 일치하지 않습니다.'}
         </div>

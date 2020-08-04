@@ -11,13 +11,11 @@ interface User {
 }
 
 interface Init {
-  setPhase: React.Dispatch<React.SetStateAction<'GetEmail' | 'UserExist' | 'UserNExist'>>,
   userInfo: User | undefined
 }
 
-export default ({ setPhase, userInfo }: Init) => {
+export default ({ userInfo }: Init) => {
   const [password, setPassword] = React.useState<string>('');
-  console.log(setPhase);
   const login = () => {
     Axios.post(`${backUrl}/auth/login`, {
       email: userInfo?.email,
@@ -33,7 +31,7 @@ export default ({ setPhase, userInfo }: Init) => {
     <>
       <div className="semi title">로그인</div>
       <div className="componentbox">
-        <Input state={password} setState={setPassword} placeholder={'비밀번호'} className={'login'} />
+        <Input state={password} setState={setPassword} placeholder={'비밀번호'} className={'login'} type={'password'} />
         <div className="text">
           비밀번호 찾기
         </div>
